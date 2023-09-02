@@ -1,0 +1,23 @@
+1、all()
+查询所有的数据
+users = UserInfo.objects.all()
+
+2、get()
+查询一条数据，一般用于主键查询，否则可能会导致查出多条数据导致报错
+user = UserInfo.objects.get()
+
+3、filter()
+根据条件查询符合条件数据
+users = UserInfo.objects.filter(age__lt=32)
+
+4、exclude()
+根据条件排除符合条件的数据，查询不符合条件的数据
+users = UserInfo.objects.exclude(age__lt=32)
+
+5、value()
+提取需要的字段，除了指定的字段，其他字段不显示
+users = UserInfo.objects.values('id', 'username', 'truename')
+
+6、distinct()
+取出重复的数据
+users = UserInfo.objects.values('username').distinct()
