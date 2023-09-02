@@ -1,3 +1,4 @@
+一、查询
 1、all()
 查询所有的数据
 users = UserInfo.objects.all()
@@ -21,3 +22,39 @@ users = UserInfo.objects.values('id', 'username', 'truename')
 6、distinct()
 取出重复的数据
 users = UserInfo.objects.values('username').distinct()
+
+二、新增
+1、save()
+新增数据
+depart = DepartInfo()
+depart.department = '技术部'
+depart.createdate = timezone.now()
+depart.save()
+或
+depart = DepartInfo(department = '技术部'， createdate = timezone.now())
+depart.save
+
+2、create()
+新增一条数据
+users = UserBaseInfo.objects.create(username='马六', password='123456', status=1, createdate=timezone.now())
+
+三、更新
+1、save()
+更新数据
+user=Userinfo.objects.get(id=1)
+user.username='lisi'
+user.save()
+
+2、update()
+更新数据
+user=Userinfo.objects.fliter(id=1).update(username='lidongqing')
+
+四、删除数据
+1、delete()
+（1）删除单行数据
+oneuser=UserInfo。objects.get(id=1)
+oneuser.delete()
+（2）删除多行数据
+oneuser=UserInfo。objects.filter(status=1).delete()
+（3）删除所有数据
+alluser = UserInfo。objects.all().delete()
