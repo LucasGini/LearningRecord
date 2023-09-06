@@ -31,7 +31,14 @@ def imgfileform(request):
             return render(request, '5/upload_form.html', {'form_obj': f, 'user': userimg})
 
 
-3、新增模板
+3、新增表单
+----django.forms.py
+class ImgFileForm(forms.Form):
+    name = forms.CharField()
+    headimg = forms.FileField()
+
+
+4、新增模板
 ----django.template
 <form enctype="multipart/form-data" action="" method="post">
   {% csrf_token %}
@@ -42,7 +49,7 @@ def imgfileform(request):
 </form>
 
 
-4、配置路由
+5、配置路由
 ----django.usrls.py
 from django.urls import path, re_path
 from django.views.static import serve
@@ -52,7 +59,7 @@ urlpatterns = [
     ]
 
 
-5、全局配置
+6、全局配置
 ----django.settings.py
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
