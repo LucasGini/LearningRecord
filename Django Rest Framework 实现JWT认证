@@ -130,3 +130,13 @@ class GoodsView(viewsets.ModelViewSet):
     queryset = Goods.objects.all()
     serializer_class = GoodsSerializer
     permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)  # 局部配置
+
+6、使用JWT
+（1）postman发起请求
+headers入参Authorization: JWT 401f7ac837da42b97f613d789819ff93537bee6a。。。
+然后发起请求
+
+7、Token认证和JWT认证的区别
+Token认证依靠数据库进行存储和查询，因此在大用户、高并发情况下性能较差
+JWT验证客户端发来的Token，不进行数据库查询，直接在服务端使用密钥进行验证
+JWT最大的缺点：服务器只负责签发JWT，不负责保存，一但JWT签发，则在有效期内一直有效，无法中途废弃，因此JWT是一次性的，要修改其中信息，必须重新签发一个新的JWT
