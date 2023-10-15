@@ -70,7 +70,7 @@ class CalcTestMethod(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-（3）断言
+（4）断言
 unittest框架提供了很多断言方法，目的是检查测试的结果是否达到预期，并在断言失败后抛出失败的原因
 常见断言方法：
 assertEqual(a, b)： a == b 为True，断言 a 和 b 是否相等，如果相等则测试用例通过
@@ -81,3 +81,22 @@ assertIs(a, b)： a is b 为True，断言 a 是否为 b ，如果是则测试用
 assertNotIs(a, b)： a not is b 为True，断言 a 是否为 b ，如果不是则测试用例通过
 
 
+三、使用HTMLTestRunner生成HTML报告
+（1）创建TestSuite
+import unittest
+from unittest_test.calc_testcase import CalcTestMethod
+
+# 创建测试套件
+suit = unittest.TestSuite()
+# 加载所有测试类
+suit.addTest(unittest.TestLoader().loadTestsFromTestCase(CalcTestMethod))
+
+（2）使用HTML方式输出
+from unittest_test import HTMLTestRunnerNew
+from unittest_test.calc_testsuits import suit
+
+with open('resport.html', 'wb') as fb:
+    test_run = HTMLTestRunnerNew.HTMLTestRunner(stream=fb, verbosity=2, title='测试报告', description='...', tester='lee')
+    test_run.run(suit)
+
+（3）最终会生成repor.html文件
