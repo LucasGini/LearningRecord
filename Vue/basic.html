@@ -1,0 +1,40 @@
+<!--
+ * @Author: lucasGini dongqianglucas@gmail.com
+ * @Date: 2023-10-22 00:25:17
+ * @LastEditors: lucasGini dongqianglucas@gmail.com
+ * @LastEditTime: 2023-10-30 23:12:53
+ * @FilePath: /myshop-vue/sample/basic.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<html>
+    <head>
+        <!--引入Vue.js库-->
+        <script language="" src="../node_modules/vue/dist/vue.js"></script>
+        <title>基本操作</title>
+    </head>
+    <body>
+        <!-- 定义id="app"的<div>标签 -->
+            <div id="app">
+                <h1>{{message}}</h1>  <!-- 显示数据 -->
+            </div>
+    </body>
+    <script language="">
+        // 实例化Vue.js应用
+        var vm = new Vue({
+            el: "#app",
+            data () {
+                return {
+                    message: "hello vue"
+                }
+            }
+        })
+    </script>
+</html>
+
+<!-- 
+    上述代码分为以下几个步骤
+    （1）用<script>标签引入Vue.js库
+    （2）定义一个<div>标签
+    （3）在Vue.js脚本部分使用new Vue({})实例化Vue应用，其中代码el属性指被Vue管理的Dom节点入口，必须是一个普通的html标签，一般是<div>标签，data属性用于初始化数据，通过模板语法来使用
+    （4）在HTML代码中使用“{{变量}}”来显示数据
+ -->
