@@ -1,0 +1,55 @@
+<!--
+ * @Author: lucasGini dongqianglucas@gmail.com
+ * @Date: 2023-10-22 01:10:09
+ * @LastEditors: lucasGini dongqianglucas@gmail.com
+ * @LastEditTime: 2023-10-22 01:30:13
+ * @FilePath: /myshop-vue/sample/style.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script lang="" src="../node_modules/vue/dist/vue.js"></script>
+    <title>用class和style设置样式</title>
+</head>
+<body>
+    <!-- 可以通过class和style设置样式。class用于指定HTML标签的样式，style用于指定内联样式。在vue.js中，可以使用v-bind指令来设置他们 -->
+    <style>
+        .active {
+            color: green;
+        }
+        .delete {
+            background: red;
+        }
+        .error {
+            font-size: 30px;
+        }
+    </style>
+    <div id="app">
+        <h2>class绑定,使用v-bind:class或:class</h2>
+        <!-- activeClass会被置换为样式表中的active，对应样式为绿色 -->
+        <p v-bind:class="activeClass">字符串表达式</p>
+        <!-- isDelete为true,渲染delete样式；当hasError为False时，则不显示error样式； -->
+        <p :class="{delete: isDelete, error: hasError}">对象表达式</p>
+        <!-- 渲染'active','error'样式，注意要加上单引号，否则会获取data中的值 -->
+        <p :class="['active', 'error']">数组表达式</p>
+        <h2>style绑定，使用v-bind:style或:style</h2>
+        <p :style="{color: activeColor, fontSize: fontSize + 'px'}">Style绑定</p>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                activeClass: 'active',
+                isDelete: true,
+                hasError: false,
+                activeColor: 'red',
+                fontSize: 20
+            }
+        })
+    </script>
+</body>
+</html>
