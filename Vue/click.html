@@ -1,0 +1,39 @@
+<!--
+ * @Author: lucasGini dongqianglucas@gmail.com
+ * @Date: 2023-10-30 22:17:26
+ * @LastEditors: lucasGini dongqianglucas@gmail.com
+ * @LastEditTime: 2023-10-30 22:25:02
+ * @FilePath: /myshop-vue/sample/click.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script lang="" src="../node_modules/vue/dist/vue.js"></script>
+    <title>用"v-on:"或"@"实现事件绑定</title>
+</head>
+<body>
+    <!-- vue.js的事件绑定格式是"v-on:"或"@"。事件处理方法需要再methods中定义 -->
+    <div id="app">
+        <button v-on:click="counter += 1">Add1</button>
+        <p>点击次数{{counter}}</p>
+        <button @click="clickMe">click me</button>
+    </div>
+    <script lang="">
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            methods: {
+                clickMe() {
+                    console.log('我是methods中的方法clickMe')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
