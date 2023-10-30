@@ -1,0 +1,50 @@
+<!--
+ * @Author: lucasGini dongqianglucas@gmail.com
+ * @Date: 2023-10-23 00:05:05
+ * @LastEditors: lucasGini dongqianglucas@gmail.com
+ * @LastEditTime: 2023-10-23 00:17:53
+ * @FilePath: /myshop-vue/sample/v_for.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script lang="" src="../node_modules/vue/dist/vue.js"></script>
+    <title>用v-for实现列表渲染</title>
+</head>
+<body>
+    <ul id="app">
+        <li v-for="item in goodsList">
+            <p>{{item.title}}</p>
+            <span v-if="item.hot">火爆</span>
+        </li>
+    </ul>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                goodsList: [
+                    {
+                        title: "哈密大枣",
+                        hot: true,
+                        id: 1
+                    },
+                    {
+                        title: "和田大枣",
+                        hot: true,
+                        id: 1
+                    },
+                    {
+                        title: "若姜枣",
+                        hot: false,
+                        id: 1
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
