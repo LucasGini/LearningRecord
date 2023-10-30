@@ -1,0 +1,38 @@
+<!--
+ * @Author: lucasGini dongqianglucas@gmail.com
+ * @Date: 2023-10-22 23:48:40
+ * @LastEditors: lucasGini dongqianglucas@gmail.com
+ * @LastEditTime: 2023-10-23 00:04:34
+ * @FilePath: /myshop-vue/sample/v_if.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script lang="" src="../node_modules/vue/dist/vue.js"></script>
+    <title>用v-if实现条件渲染</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 在v-if和v-else或v-else-if之间不能添加其他的HTML标签 -->
+        <div v-if="picShow">True显示,False不显示</div>
+        <div v-if="score>=90 && score<=100">优秀</div>
+        <div v-else-if="score>=70 && score<90">良好</div>
+        <div v-else-if="score>=60 && score<70">及格</div>
+        <div v-else-if="score>=0 && score<60">不及格</div>
+        <div v-else>错误</div>
+    </div>
+    <script lang="">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                picShow: true,
+                score: 65
+            }
+        })
+    </script>
+</body>
+</html>
