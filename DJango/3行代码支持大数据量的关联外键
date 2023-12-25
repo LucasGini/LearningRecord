@@ -1,0 +1,24 @@
+3行代码支持大数据量的关联外键
+
+1.准备：设置Province,City的外键依赖
+    countryid = models.ForeignKey(Country, db_column='countryid', null=True,
+    on_delete=models.SET_NULL)
+    
+2.设置自动完成的关联外键（admin.py）
+    
+    @admin.register(City)
+    class CityAdmin(admin.ModelAdmin):
+        autocomplete_fields = ['provinceid','countryid',]
+        list_display = ('cityid', 'countryid', 'areaid', 'provinceid', 'chn_name', 'eng_name')
+    
+3.依赖的model Admin类中设置可以搜索的字段
+
+    @admin.register(Country)
+    class CountryAdmin(admin.ModelAdmin):
+        search_fields = ('chn_name', 'eng_name',)
+    
+    @admin.register(Province)
+    class ProvinceAdmin(admin.ModelAdmin):
+        search_fields = ('chn_name', 'eng_name',)
+        
+        

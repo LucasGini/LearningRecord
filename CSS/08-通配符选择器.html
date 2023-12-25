@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础选择器之通配符选择器</title>
+    <style>
+        * {
+            color: red;
+        }
+        /* *这里把html body div span li 等等的标签都改为了红色 */
+    </style>
+</head>
+<!-- 
+2.6 通配符选择器
+在CSS中，通配符选择器使用“*”定义，它表示选取页面中所有元素（标签）。
+语法：
+* {
+    属性1: 属性值1;
+    ...
+}
+通配符选择器不需要调用，自动就给所有的元素使用样式
+特殊情况才使用，例如清除所有元素标签的内外边距
+
+2.7 基础选择器总结
+基础选择器      作用                     特点                                   
+
+标签选择器      可以选出所有相同的标签     不能差异化选择
+类选择器        可以选择1个或者多个标签    可以根据需求选择
+id选择器        一次只能选择一个标签       ID属性只能在每个HTML文档出现一次
+通配符选择器    选择所有标签               选择的太多，有部分不需要
+
+每个基础选择器都有使用场景，都需要掌握
+如果是修改样式，类选择器是使用最多的
+ -->
+<body>
+    <div>我的</div>
+    <span>我的</span>
+    <ul>
+        <li>还是我的</li>
+    </ul>
+</body>
+</html>

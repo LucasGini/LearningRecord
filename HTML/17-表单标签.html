@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单标签</title>
+</head>
+<!--
+3. 表单标签
+3.1 为什么需要表单
+使用表单目的是为了收集用户信息。
+
+3.2 表单的组成
+在HTML中，一个完整的表达通常由表单域、表单控件（也称为表单元素）和提示信息3个部分构成。
+
+3.3 表单域
+表单域是一个包含表单元素的区域。
+在HTML标签中，<form>会把它范围内的表单元素信息提交给服务器。
+    <form> action="url地址" method="提交方式" name="表单域名称">
+        各种表单控件
+    </form>
+常用属性：
+action   属性值为url地址。作用为用于指定接收并处理表单数据的服务器程序的url地址。
+method   属性值为get/post，作用为用于设置表单数据的提交方式，其取值为get或post。
+name     属性值为名称，作用为用于指定表单名称，以区分同一个页面的多个表单域。
+
+3.4 表单控件（表单元素）
+在表单域中可以定义各种表单元素，这些表单元素就是允许用户在表单中输入或者选择的内容控件。
+  1、input输入表单元素
+  2、select下拉表单元素
+  3、textrea文本域元素
+
+3.4.1 <input>表单元素
+在英文单词中，input是输入的意思，在表单元素中<input>标签用于收集用户信息。
+在<input>标签中，包含一个type属性，根据不同的type属性值，输入字段拥有很多种形式（可以是文本字段、复选框、掩码后的文本控件、单选按钮、按钮等）。
+<input type="属性值" />
+  1、<input />标签为单标签
+  2、type属性设置不同的属性值用来指定不同的控件类型
+
+type属性的属性值及其描述如下：
+button：定义可点击按钮（多数情况下，用于通过JavaScript启动脚步）。
+checkbox：定义复选框
+file：定义输入字段和”浏览“按钮，供文件上传
+hidden：定义隐藏的输入字段
+image：定义图像形式的提交按钮
+password：定义密码字段。该字段中的字符被掩码
+radio：定义单选按钮
+reset：定义重置按钮。重置按钮会清除表单中所有的数据
+submit：定义提交按钮。提交按钮会把表单数据发送到服务器。
+text：定义单行的输入字段，用户可在其中熟人文本。默认宽度为20个字符。
+
+除type属性外，<input>标签还有其他很多属性，其常用属性如下：
+name：属性值为用户自定义，定义input元素的名称。
+value：属性值为用户自定义，定义input元素的值。
+checked：属性值为checked，规定此input元素首次加载时应当被选中。
+maxlength：属性值为正整数，规定输入字段中的字符最大长度。
+  1、name 和value是每个表单元素都有的属性值，主要给后台人员使用
+  2、name表单元素的名字，要求单选按钮和复选框要有相同的name值。
+  3、checked属性主要针对于单选按钮和复选框，主要作用一打开页面，就可以默认选择某个表单元素。
+  4、maxlength 是用户可以在表单元素输入的最大字符数，一般较少使用。
+
+3.4.2 <label>标签
+<label>标签为input元素定义标注(标签)
+<label>标签用于绑定一个表单元素，当点击<label>标签内的文本时，浏览器会自动将焦点（光标）转到或者选择对应的表单元素上，用来增加用户体验。
+语法：
+<label for="sex">男</label>
+<input type="radio" name="sex" id="sex">
+核心：<label>标签的for属性应当与相关元素的ID属性相同。
+
+3.5 <select>表单元素
+使用场景：在页面中，如果有多个选项让用户选择，并且想要节约页面空间时，可以使用<select>标签控件定义下拉列表
+语法：
+<select>
+    <option>选项1</option>
+    <option>选项2</option>
+    <option>选项3</option>
+</select>
+  1、<select>中至少包含<option>。
+  2、在<option>中定义selected="selecte"时，当前项即为默认选中项。
+
+3.6 <textarea>表单元素
+使用场景：当用户输入内容较多的情况下，我们就不能使用文本框表单了，可以使用<textarea>标签
+在表单元素中，<textarea>标签时用于定义多行文本输入的控件
+使用多行文本输入控件，可以输入更多的文字，该控件常见于留言板，评论。
+语法：
+<textarea rows="3" cols="20">
+文本内容
+</textarea>
+  1、通过<textarea>标签可以轻松地创建多行文本输入框
+  2、cols="每行字符数"，rows="显示的行数"，在实际开发中不会使用，都是用css来控制大小
+-->
+<body>
+    <form action="demo.php" method="POST" name="name1">
+        <!-- text 文本框 用户可以在里面输入任何文字 -->
+        <label for="username">用户名： </label><input type="text" name="username" value="请输入用户名" maxlength="6" id="username">
+        <br />
+        <!-- password 密码框 用户看不输入的密码  -->
+        密码：<input type="password" name="pwd">
+        <br />
+        <!-- radio 单选按钮 可以实现多选一 -->
+        <!-- name 是表单元素名字 这里性别单选按钮必须有相同的名字name 才可以实现多选一 -->
+        <!-- 单选框和复选框可以设置checked属性，当页面打开的时候就可以默认选中这个按钮 -->
+        性别：
+        <label for="nan">男 </label>
+        <input type="radio" name="sex" value="男" checked="checked" id="nan"> 
+        <label for="nv">女 </label>
+        <input type="radio" name="sex" value="女" id="nv"> 
+        <label for="ren">人妖 </label>
+        <input type="radio" name="sex" value="人妖" id="ren">
+        <br />
+        <!-- checkbox 复选框 可以实现多选 -->
+        爱好：吃饭 <input type="checkbox" name="hobby" value="吃饭" checked="checked"> 睡觉 <input type="checkbox" name="hobby" value="睡觉"> 打豆豆 <input type="checkbox" name="hobby" value="打豆豆">
+        <br />
+        <!-- submit 提交按钮 点击了提交按钮，可以吧表单域form里面的表单元素里面的值提交给后台服务器 -->
+        <input type="submit" value="免费注册"> 
+        <!-- reset 重置按钮 点击重置按钮可以还原表单元素初始的默认状态 -->
+        <input type="reset" value="重新填写">
+        <!-- 普通按钮 butto 后期搭配JS使用 -->
+        <input type="button" value="获取短信验证码">
+        <br />
+        <!-- 文件域 使用场景 上传文件使用 -->
+        上传头像：<input type="file">
+        <br />
+        <!-- <select></select> 用于定义下拉列表 -->
+        籍贯：
+        <select>
+            <option>山东</option>
+            <option selected="selected">广东</option>
+            <option>广西</option>
+            <option>东北</option>
+        </select>
+        <br />
+        <!-- <textarea></textarea> 文本域标签  -->
+        今日反馈：<br />
+        <textarea rows="5" cols="50">这个是文本内容</textarea>
+
+    </form>
+</body>
+</html>

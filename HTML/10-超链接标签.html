@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--
+    1.链接的语法格式
+    <a href="跳转目标" target="目标窗口的弹出方式">文本或图像</a>
+    <a>单词anchor的缩写，意为：锚。
+    两个属性的作用如下：
+    href：用于指定链接目标的url地址，（必须属性）当为标签应用href属性时，它就具有超链接的功能
+    target：用于指定链接页面的打开方式，其中_self为默认值，__blank为在新窗口中打开方式。
+    2.链接分类
+    外部链接：例如,<a = href="https://www.baidu.com">百度</a>
+    内部链接：网站内部页面之间相互链接。直接链接内部页面名称即可，例如 <a href="index.html">首页</a>
+    空链接：如果当时没有确定链接目标时，<a href="#">首页</a>
+    下载链接：如果href里面的地址是一个文件或者压缩包，会下载这个文件。
+    网页元素链接：在网页中的各种网页元素，如文本/图像/表格/音频/视频等都可以添加超链接。
+    锚点链接： 点我们点击链接，可以快速定位到页面中的某个位置
+    （1）在链接文本的href属性中，设置属性值为#名字的形式，如<a href="two">第二集</a>
+    （2）找到目标位置标签，里面添加一个id属性=刚才到名字，如：</h3 id="two">第二集</h3>
+-->
+
+<body>
+    <h4>1. 外部链接</h4>
+    <a href="https://www.qq.com", target="_blank">腾讯</a>
+    target 打开窗口的方式 默认值是_self 当前窗口打开页面  _blank 新窗口打开页面
+    <a href="http://www.itcast.cn" target="_blank">传智播客</a>
+    <h4>2.内部链接：网站内部页面之间相互链接</h4>
+    <a href="03-VScode创建页面.html">03-VScode创建页面</a>
+    <h4>3.空链接</h4>
+    <a href="#">空链接</a>
+    <h4>4.下载链接：地址链接是文件.exe 或者是zip等压缩包形式</h4>
+    <a href="images/src=http___pic16.nipic.com_20111008_5203963_093910733000_2.jpg&refer=http___pic16.nipic.jpeg.zip">下载文件</a>
+    <h4>4.2=网页元素链接</h4>
+    <a href="https://www.baidu.com"><img src="images/src=http___pic16.nipic.com_20111008_5203963_093910733000_2.jpg&refer=http___pic16.nipic.jpeg" /></a>
+</body>
+</html>

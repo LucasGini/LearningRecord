@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础选择器之标签选择器</title>
+    <style>
+        /* 标签选择器：写上标签名 */
+        p {
+            color: green;
+        }
+        div {
+            color: pink;
+        }
+    </style>
+</head>
+<!-- 
+2.1 CSS选择器的作用
+选择器就是根据不同需求把不同的标签选出来这就是选择器的作用。就是选择标签用的。
+
+2.2 选择器分类
+选择器分为基础选择器和复合选择器两大类
+基础选择器就是由单个选择器组成的
+基础选择器又包括：标签选择器、类选择器、id选择器、和通配符选择器
+
+2.3 标签选择器
+标签选择器（元素选择器）是指用HTML标签名称作为选择器，按标签名称分类，为页面中某一类标签指定统一的CSS样式
+语法：
+标签 {
+    属性1: 属性值1;
+    ...
+}
+作用：标签选择器可以把某一类标签全部选择出来
+优点：能快速为页面中同类型的标签统一设置样式
+缺点：不能设计差异化样式，只能选择全部的当前标签。
+
+
+ -->
+<body>
+    <p>男生</p>
+    <p>男生</p>
+    <p>男生</p>
+    <div>女生</div>
+    <div>女生</div>
+    <div>女生</div>
+
+</body>
+</html>

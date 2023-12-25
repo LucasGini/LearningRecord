@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+1.表格标签
+1.1表格的主要作用
+表格主要用于显示/展示数据，因为它可以让数据显示的非常规整，可读性非常好。特别是后台展示数据的时候，能够熟练运用表格就显得很重要。一个轻爽简约的表格就能够吧繁杂的数据表现得很有条理。表格不是用来布局页面的，而是用来展示数据的。
+1.2表格的基本语法
+<table>
+    <tr>
+    <td>单元格内的文字</td>
+    ...
+    </tr>
+    ...
+</table> 
+<table></table> 是用于定义表格的标签。
+<tr></tr> 标签用于定义表格中的行，必须嵌套在<table></table>标签中
+<td></td>用于定义表格数据的单元格，必须嵌套在<tr></tr>标签中
+字母td指表格数据(table data)，即数据单元格的内容
+1.3表头单元格标签
+一般表头单元格位于表格第一行或者第一列，表头单元格里面的文本内容加粗居中显示
+<th>标签表示HTML表格的表头部分（table head的缩写）
+1.4 表格的属性
+表格标签的属性我们实际开发不常用，后面通通过CSS来设置
+1.5 表格结构标签
+使用场景：因为表格可能很长，为了更好的表示表格的语义，可以将表格分割成表格头部喝表格主题两大部分。
+在表格标签中，分别用：<thead>标签 表格的头部区域、<tbody>标签 表格的主体区域。这样可以更好的分清表格结构。
+<thead></thead>:用于定义表格的头部。<thead>内部必须有<tr>标签。一般是位于第一行。
+<tbody></tbody>:用于定义表格的主体，主要用于放数据本体。
+1.6 合并单元格
+特殊情况下，可以吧多个单元格合并为一个单元格
+1、合并单元格方式：
+  跨行合并：rowspan="合并单元格的个数"
+  跨列合并：colspan="合并单元格的歌手"
+2、目标单元格：(写合并代码)
+  跨行：最上侧单元格为目标单元格，些合并单吗
+  跨列：最左侧单元格为目标单元格，写合并代码
+3、合并单元格三部曲：
+  先确定是跨行还是跨列合并。
+  找到目标单元格。写上合并方式=合并单元格数量。比如：<td colspan="2"></td>。
+  删除多余的单元格。
+
+-->
+<body>
+    <table align="center"  border="1" cellpadding="0" cellspacing="0" width="500" height="240"> 
+    <thead>
+        <tr>
+            <th>属性名</th> <th>属性值</th> <th>描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>align</td> <td>left/center/right</td> <td>规定表格对周围元素的对齐方式</td>
+        </tr>
+        <tr>
+            <td>border</td> <td>1或""</td> <td>规定表格单元格是否拥有边框，默认为""，表示没有边框</td>
+        </tr>
+        <tr>
+            <td>cellpadding</td> <td>像素值</td> <td>规定表格边缘与其他内容之间的空白，默认1像素</td>
+        </tr>
+        <tr>
+            <td>cellspacing</td> <td>像素值</td> <td>规定单元格之间空白，默认2像素</td>
+        </tr>
+        <tr>
+            <td>width</td> <td>像素值或百分比</td> <td>规定表格的宽度</td>
+        </tr>
+        <tr>
+            <td>height</td> <td>像素值或百分比</td> <td>规定表格的高度</td>
+        </tr>
+    </tbody>
+    </table>
+</br>
+<!--合并单元格 -->
+    <table align='center' border="1" cellspacing="0" width="500" height="249">
+        <tbody>
+            <tr>
+                <td></td> <td colspan="2"></td> 
+            </tr>
+            <tr>
+                <td rowspan="2"></td> <td></td> <td></td>
+            </tr>
+            <tr>
+                <td></td> <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

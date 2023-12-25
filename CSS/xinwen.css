@@ -1,0 +1,33 @@
+body {
+    font: 16px/28px "Microsoft YaHei";
+}
+h1 {
+    font-weight: 400;
+    text-align: center;
+}
+p {
+    text-indent: 2em;
+}
+div {
+    text-align: center;
+}
+.search {
+    color: gray;
+    width: 170px;
+}
+.time  {
+    text-align: center;
+    color: gray;
+    font-size: 10px;
+}
+a {
+    text-decoration: none;
+}
+.headline {
+    font-weight: 700;
+    text-indent: 0%;
+}
+.end {
+    font-size: 10px;
+    color: gray;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS的引入方式</title>
+    <style>
+        /* 内部样式表 */
+        div {
+            color: red;
+        }
+    </style>
+</head>
+<!--
+5.CSS引入方式
+5.1 CSS的三种样式表
+按照CSS样式书写的位置（或引入的方式），CSS样式表可分为三大类：
+1.行内样式表（行内式）
+2.内部样式表（嵌入式）
+3.外部样式表（链接式）
+
+5.2 内部样式表
+内部样式表(内嵌样式表)是写到html页面内部。是将所有的CSS代码抽取出来，单独放到一个<style>标签中
+<style>
+    div {
+        color: red;
+        font-size: 12px;
+    }
+</style>
+<style>标签理论上可以放在HTML文档的任何地方，但一般会放在文档的<head>标签中
+通过此种方式，可以控制整个页面的中的元素样式设置
+代码结构清晰，但是并没有实现结构与样式完全分离
+使用内部样式表设定CSS，通常也被称为嵌入式引入，这种方式是练习时常用的方式
+
+-->
+<body>
+    <div>内部样式表(内嵌样式表)是写到html页面内部。是将所有的CSS代码抽取出来，单独放到一个style标签中</div>
+
+</body>
+</html>

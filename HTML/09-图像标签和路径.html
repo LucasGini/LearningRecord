@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--
+    一、图像标签
+    <img>:图像标签，单词image的缩写，意为图像
+    <img src="图像URL" />
+    src是<img>标签的必须属性，它用于指定图像文件的路径和文件名
+    alt是替换文本，图像显示不出来的时候用文字替换
+    title 提示文本 鼠标放到图像上，提示的文字
+    所谓属性：简单理解就是属于这个图像标签的特性
+    图像标签注意点：
+    1、图像标签可以拥有多个属性，必须写在标签名的后面
+    2、属性之间不分先后顺序，标签名与属性、属性与属性、之间均以空格分开
+    3、属性采取键值对的个性。即key="value"的格式，属性= "属性值"。
+
+    二、路径
+    （1）目录文件夹和根目录：
+    实际工作中，我们的文件不能随便乱放，否则用起来很难快速找到它们，因此我们需要一个文件夹来管理它们
+    目录文件夹：就是普通文件夹，里面只不过存放了我们做页面所需要的相关素材，比如html文件、图片等。
+    跟目录：打开目录文件夹的第一层就是根目录
+    （2）路径可以分为：
+    1、相对路径：旖引用文件所在位置为参考基础，而建立出的目录路径。这里简单来说，图片相对于HTML页面的位置
+    同一级路径：src="imgae.jpeg"
+    下一级路径：src="images/imgae.jpeg"
+    同一级路径：src="../imgae.jpeg"
+    相对路线是从代码所在的这个文件出发，去寻找目标文件的，而我们这里所说的上一级、下一级和同一级就是图片相对于HTML页面的位置。
+    2、绝对路径：是指目录下的绝对位置，直接到达目标位置，通常是从盘符开始的路径。
+    例如，"D：\web\img\logo.gif",或完整的网络地址http://www.itcast.cn/images/logo.gif""
+
+
+-->
+<body>
+    <h4>图像标签的使用：</h4>
+    <img src="images/src=http___pic16.nipic.com_20111008_5203963_093910733000_2.jpg&refer=http___pic16.nipic.jpeg" />
+    <h4>alt 替换文本 图像显示不出来的时候用文字替换：</h4>
+    <img src="src=http___pic16.nipic.com_20111008_5203963_093910733000_2.jpg&refer=http___pic16.nipi.jpeg" alt="我是华山松"/>
+    <h4>title 提示文本 鼠标放到图像上，提示的文字:</h4>
+    <img src="images/src=http___pic16.nipic.com_20111008_5203963_093910733000_2.jpg&refer=http___pic16.nipic.jpeg" alt="我是华山松" title="我是华山松"/>
+</body>
+</html>

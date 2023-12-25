@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础选择器之类选择器</title>
+    <style>
+        /* 类选择器口诀：样式点定义 结构类（class）调用 一个或多个 开发最常用 */
+        .red {
+            color: red;
+         }
+        .green {
+            color: green;
+        }
+        .star-sing {
+            color: pink;
+        }
+    </style>
+</head>
+<!-- 
+2.4 类选择器
+如果想要差异化选择不同的标签，单独选择一个或者某几个人标签，可以使用类选择器。
+语法：
+.类名 {
+    属性1: 属性值1;
+    ...
+}
+结构需要用class属性来调用  clss  类的意思
+<div class="red"> 变红色 </div>
+注意：
+①类选择器使用“.”(英文点号)进行标识，后面紧跟类名（自定义，我们自己命名的）
+②可以理解为给这个标签起一个名字来表示
+③长名称或词组可以使用中横线来为选择器命名
+④不要使用纯数字、中文等命名，尽量使用英文字母来表示。
+⑤命名要有意义，尽量使别人一眼就知道这个类名的目的。
+
+记忆口诀：样式点定义，结构类（class）调用，一个或多，开发最常用。
+ -->
+<body>
+    <ul>
+        <li class="red">冰雨</li>
+        <li class="red">来生缘</li>
+        <li class="green">李香兰</li>
+        <li class="star-sing">生僻字</li>
+        <li>江南style</li>
+    </ul>
+    <div class="red">我也想变红色</div>
+</body>
+</html>

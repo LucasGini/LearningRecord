@@ -1,0 +1,29 @@
+国家-城市选择：设置链式关联键
+
+1.安装 django-smart-selects插件
+    pip install django-smart-selects
+    
+2. 添加smart_selects到安装的APPS中
+
+3.在项目urls.py中添加chaining/的url路径
+链式下拉选择的时候会调用这个URL。
+    urlpatterns = patterns('',
+        url(r'^admin',include(admin.site.urls)),
+        url(r'^chaining',include(smart_selects.urls)),
+    )
+    
+4. Model中定义ChainedForeignKey
+
+    from smart_selects.db_fields import ChainedForeignKey
+    
+    class City(models.Model):
+        ...
+        provinceid = ChainedForeignKey(
+        Province,
+        chainde_field='countryid',
+        chainde_model_field='countryid',
+        show_all=False,
+        auto_choose=True,
+        sort=True,
+        db_column='provinceid'
+        ...

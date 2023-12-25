@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外部样式表</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--
+5.4 外部样式表
+实际开发都是外部样式表。适合于样式比较多的情况。核心是：样式单独写到CSS文件中，之后把CSS文件引入到HTML页面中使用。
+引入外部样式表分为两步：
+1.新建一个后缀名为.css的样式文件，把所有CSS代码都放入此文件中。
+2.HTML页面中，使用<link>标签引入这个文件。
+<link rel="stylesheet" href="css文件路径">
+
+属性      作用
+rel       定义当前文档与被链接文档之间的关系，在这里需要指定为“stylesheet”，表示被链接的文档时一个样式表文件
+href      定义所链接外部样式表文件的URL，可以是相对路径，也可以是绝对路径
+
+使用外部样式表设定CSS，通常也被称为外链式或链接式引入，这种方式是开发中常用的方式
+
+5.5 CSS引入方式总结
+样式表      优点                     缺点              使用情况           控制范围
+行内样式表   书写方便，权重高          结构样式混写        较少              控制一个标签
+内部样式表   部分结构和样式相分离       没有彻底分离        较多              控制一个页面
+外部样式表   完全实现结构与样式相分离   需要引入            最多              控制多个页面   
+-->
+<body>
+    <div>来呀～快活呀，反正有大把时间。。。</div>
+</body>
+</html>
