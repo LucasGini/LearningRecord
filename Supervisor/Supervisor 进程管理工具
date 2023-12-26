@@ -1,3 +1,4 @@
+
 Supervisor 进程管理工具
 supervisor是一个进程管理工具，使用 python 开发的一个 C/S 服务，是 Linux/Unix 系统下的一个进程管理工具，可以很方便的监听、启动、停止、重启一个或多个进程。用 supervisor 管理的进程，当一个进程意外被杀死，supervisor监听到进程死后，会自动将其重启启动，这样我们就很方便的实现了进程的自动恢复功能。
 
@@ -129,3 +130,8 @@ supervisor> status
 supervisor> start App_name
 supervisor> stop App_name
 supervisor> restart App_name
+
+七、开机自动启停
+systemctl enable supervisord
+验证命令
+systemctl is-enable supervisord
