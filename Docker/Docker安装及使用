@@ -1,0 +1,72 @@
+安装Docker的操作系统的内核版本不能低于3.10
+
+1、安装Docker
+（1）查看linux内核版本
+uname -r
+
+（2）安装软件包
+yum install yum-utils
+
+（3）设置yum安装源
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+（4）在线安装Docker CE版本
+yum install -y docker-ce
+
+（5）卸载Docker
+yum remove docker-ce
+
+2、启动Docker命令
+systemctl start docker   # 启动docker
+systemctl restart docker # 重启docker
+systemctl stop docker    # 停止docker
+systemctl status docker  # 查看状态
+systemctl enable docker  # 开机时docker自动启动
+
+
+3、操作镜像
+（1）搜索镜像
+docker search 镜像名称
+
+（2）获取镜像
+docker pull 镜像名称:镜像标签
+不指定标签，则默认为latest标签
+
+（3）查看镜像
+docker images
+. REPOSITORY: 镜像所在的仓库名称
+. TAG: 镜像标签
+. IMAGE ID: 镜像ID
+. CREATED: 镜像创建日期
+. SIZE: 镜像的大小
+
+4、导入导出镜像
+（1）导出镜像
+docker save imagename -o filepath
+如：docker save python:3.8 -o /root/python3.8.tar
+（2）导入镜像
+将导出的镜像文件复制到其他主机，执行如下命令
+docker load -i /root/python3.8.tar
+或者使用
+cat root/python3.8.tar | docker import - python:3.8
+
+5、配置国内镜像仓库
+（1)阿里云镜像加速地址：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
+
+（2）登录获取加速器地址
+https://eg49oms8.mirror.aliyuncs.com
+
+（3）新建配置文件：
+vim /etc/docker/daemon.json
+输入如下内容
+{
+  "registry-mirrors": ["https://eg49oms8.mirror.aliyuncs.com"]
+}
+保存
+
+（4）重启生效
+systemctl daemon-reload
+systemctl restart docker
+
+
+6、操作容器
