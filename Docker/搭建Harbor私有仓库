@@ -10,3 +10,25 @@
   （2）查看版本信息
     docker-compose version
 
+2、安装Harbor
+（1）下载Harbor
+wget https://github.com/goharbor/harbor/releases/download/v1.10.0/harbor-offline-installer-v1.10.0.tgz
+（2）解压缩
+tar -xzvf harbor-offline-installer-v1.10.0.tgz
+（3）进入解压后的目录，配置harbor.yml文件
+. Hostname: 本机的IP地址
+. harbor_admin_password：登录密码
+. port: 端口号
+注意：如果不使用https协议，需要将https的配置注释掉
+
+（4）安装并启动harbor
+./install.sh
+
+命令
+docker-compose up -d   # 启动
+docker-compose stop    # 停止，但不删除容器
+docker-compose down    # 停止，删除容器及其网络
+
+3、登录Harbor
+访问http://ip:端口号，打开Harbor登录页面，输入用户名admin和密码登录进入主页面
+
