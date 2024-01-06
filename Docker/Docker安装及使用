@@ -70,3 +70,53 @@ systemctl restart docker
 
 
 6、操作容器
+（1）启动容器
+使用docker run 命令来创建并启动容器，相当于docker create 和docker start命令的组合
+选项参数                 含义
+-i                     在创建容器后启动容器并进入容器，通常和-t联合使用
+-t                     启动后进入让你过去的命令行，通常与-i联合使用
+--name                 为容器指定一个名称
+-d                     创建的容器在后台执行，不会自动登录容器
+-p                     端口映射，格式为宿主机端口:容器端口
+-v                     目录映射，格式为宿主机目录:容器目录
+-e                     设置环境变量，格式为key=value
+
+（2）查询容器
+docker ps -a
+
+
+（3）进入交互型容器
+docker run -it centos:latest /bin/bash
+
+（4）创建后台型容器
+docker run -it -d --name "centos-port" -p 80:80 centos:latest
+-p 参数指将容器的端口暴露出来，格式为“宿主机端口:容器端口”
+
+7、进入容器
+docker ps
+docker exec -it 容器ID /bin/bash
+
+
+8、停止容器
+docker stop -t=60 容器ID或者容器名
+参数-t指关闭容器的时间，默认值为10s
+
+docker kill 容器ID或容器名
+
+两者的区别是docker stop会留出一定的时间来让容器保存状态，kill直接关闭容器
+
+9、删除容器
+docker rm 容器名称
+
+删除所有未使用的容器
+docker rm $(docker ps -a -q)
+
+
+10、复制容器中的文件
+docker cp [OPTIONS] 容器id:src_path dest_path   # 从容器复制文件到宿主机
+docker cp [OPTIONS] dest_path 容器id:src_path  # 从宿主机复制文件到容器
+
+11、查看容器中的日志
+
+docker logs 容器id或容器名
+docker logs nginx   # 查看Nginx的logs
