@@ -32,3 +32,27 @@ docker-compose down    # 停止，删除容器及其网络
 3、登录Harbor
 访问http://ip:端口号，打开Harbor登录页面，输入用户名admin和密码登录进入主页面
 
+4、配置、使用Harbor
+（1）登录主界面后，新建一个项目，然后进入项目，点击镜像仓库，可以查看Harbor对镜像格式的要求
+推送镜像的Docker命令：
+在项目中标记镜像：docker tag SOURCE_IMAGE[:TAG] 47.106.xxx.xxx/autotest_backend/IMAGE[:TAG]
+推送镜像到当前项目：docker push 47.106.xxx.xxx/autotest_backend/IMAGE[:TAG]
+
+（2）使用docker tag 命令将本地的SOURCE_IMAGE[:TAG]镜像标识为Harbor能够失识别的47.106.xxx.xxx/autotest_backend/IMAGE[:TAG]格式，格式为:IP地址/项目名称/镜像名称
+如：docker tag redis:6.2.5 47.106.xxx.xxx/autotest_backend/IMAGE[:TAG]
+
+（3）配置以非HTTPS方式推送镜像
+修改/ect/docker/daemon.json文件：
+{
+  "registry-mirrors": ["https://eg49oms8.mirror.aliyuncs.com"],
+  "insecure-registries": ["47.106.xxx.xxx"]  # 部署了Harbor的主机IP地址（云服务器则使用公网ip）
+}
+systemctl daemon-reload  # 加载配置文件
+systemctl restart docker  # 重启docker
+
+（4）登录Harbor并上传镜像
+docker login 47.106.xxx.xxx 
+然后输入用户名和密码
+
+登录成功后，使用docker push命令上传镜像
+如：docker push 47.106.xxx.xxx/autotest_backend/redis:6.2.5
