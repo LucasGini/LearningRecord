@@ -2,7 +2,7 @@
   安装Harbor私有仓库，首先需要安装docker-compose，docker-compose是docker官方的开源项目，负责实现对docker容器集群的快速编排
 
   （1）快速安装docker-compose
-  wegt https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64   # 下载文件
+  wget https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64   # 下载文件
   mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose   # 将文件移动到/usr/local/bin/并改名为docker-compose
   chmod +x /usr/local/bin/docker-compose       # 设置文件权限
   ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose   # 创建软链接
