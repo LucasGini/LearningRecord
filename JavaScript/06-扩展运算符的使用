@@ -1,0 +1,80 @@
+// 扩展运算符的使用
+
+// 1、操作对象
+// 1)复制对象,使用'...'可以实现浅复制
+let obj1 = {a: 1, b: 2};
+let obj2 = {...obj1};
+obj2.a = 4;
+console.log(obj1);    // 结果：{a: 1, b: 2}
+console.log(obj2);    // 结果：{a: 4, b: 2}
+
+// 非浅复制案例
+let obj11 = {a: 1, b: 2};
+let obj12 = obj11;
+obj12.a = 4;
+console.log(obj11);     // 结果：{a: 4, b: 2}
+console.log(obj12);     // 结果：{a: 4, b: 2}，obj11和obj12指向同一个内存地址
+
+// ES5实现浅复制
+let obj111 = {a: 1, b: 2};
+let obj112 = {};
+for (let key in obj111) {
+    obj112[key] = obj111[key];
+}
+obj112.a = 3;
+console.log(obj111)     // 结果:{a: 1, b: 2}
+console.log(obj112);    // 结果:{a: 3, b: 2}，obj111和obj112没有指向同一个内存地址
+
+// 2)合并对象
+let payload = {title: '羊肉串', amount: 10, price: 2};
+let user = {uid: 1, shop_id: 20};
+let data = {...payload, ...user};
+console.log(data);   // 结果：{title: '羊肉串', amount: 10, price: 2, uid: 1, shop_id: 20}
+
+// 2、操作数组
+
+// 1) 复制数组
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1];
+arr2.push(4);
+console.log(arr1)       // 结果：[1, 2, 3]
+console.log(arr2);      // 结果：[1, 2, 3, 4]
+
+// 2) 合并数组
+
+let arr3 = [1, 2, 3];
+let arr4 = [4 ,5 ,6];
+let arrData = [...arr3, ...arr4];
+console.log(arrData);   // 结果：[1, 2, 3, 4, 5, 6]
+
+// 不使用扩展运算符的案例
+let data1 = [
+    {id: 1, title: '羊肉串'},
+    {id: 2, title: '猪肉串'},
+    {id: 3, title: '牛肉串'}
+];
+let newData = [
+    {id: 4, title: '啤酒'},
+    {id: 5, title: '可乐'},
+    {id: 6, title: '雪碧'}
+];
+
+for (let i = 0; i < data1.length; i++) {
+    newData.push(data1[i]);
+}
+console.log(newData);   // 结果：[{id: 1, title: '羊肉串'},{id: 2, title: '猪肉串'},{id: 3, title: '牛肉串'},{id: 4, title: '啤酒'},{id: 5, title: '可乐'},{id: 6, title: '雪碧'}]
+
+// 使用扩展运算符的案例
+let data2 = [
+    {id: 1, title: '羊肉串'},
+    {id: 2, title: '猪肉串'},
+    {id: 3, title: '牛肉串'}
+];
+let newData2 = [
+    {id: 4, title: '啤酒'},
+    {id: 5, title: '可乐'},
+    {id: 6, title: '雪碧'}
+];
+newData2.push(...data2);
+console.log(newData2);  // 结果：[{id: 1, title: '羊肉串'},{id: 2, title: '猪肉串'},{id: 3, title: '牛肉串'},{id: 4, title: '啤酒'},{id: 5, title: '可乐'},{id: 6, title: '雪碧'}]
+
