@@ -1,0 +1,134 @@
+// 解构赋值
+// 解构赋值语法是一种JavaScript表达式。通过解构赋值，可以将属性/值从对象/数组中取出，复制给其他变量。
+
+// 普通赋值
+let person = {
+    name: '张三',
+    age: 20
+}
+var name = person.name;
+var age = person.age;
+console.log(name, age);     // 结果：张三 20
+
+// 1、对象解构
+let person1 = {
+    name1: '张三',
+    age1: 20
+}
+let {name1, age1} = person1;    // 注意{}号内的变量要与对象的属性名一致
+console.log(name1, age1);    // 结果：张三 20
+//上面的代码中person1.name的值被储存在变量name中，person.age被储存在变量age中，name和age其实就是本地声明的变量
+
+// 如果变量已经声明，想要用解构语法给变量复制，需要用括号包裹整条复制语句
+let person2 = {
+    name2: '张三',
+    age2: 20
+}
+let name2, age2;
+({name2, age2} = person2);
+console.log(name2, age2);   // 结果：张三 20
+
+// 使用解构赋值时，如果指定的局部变量不存在于对象中，那么这个局部变量就被赋值为undefined，可以给这个局部变量设置一个默认值
+let person3 = {
+    name3: '张三',
+    age3: 20
+}
+let {name3, age3, city= '北京'} = person3;
+console.log(name3, age3, city);     // 结果：张三 20 北京
+
+// 解构赋值的局部变量名与其他变量名冲突
+let person4 = {
+    name4: '张三',
+    age4: 20
+}
+let {name4, age4} = person4;
+// let name4;  结果：Uncaught SyntaxError: Identifier 'name4' has already been declared
+
+// 给解构的变量名重命名来解决这个冲突
+let person5 = {
+    name5: '张三',
+    age5: 20
+}
+let {name5: newName, age5} = person5;
+let name5 = '李四';
+console.log(name5, age5, newName);      // 结果：李四 20 张三
+
+// 深层嵌套解构赋值案例一:
+let person6 = {
+    name: '张三',
+    age: 20,
+    children: {
+        name: '李四',
+        age: 21
+    }
+}
+let {children: {name: cName}} = person6;    // 先提前person6的children属性，然后再查找name属性并赋予cName，然后打印cName
+console.log(cName);     // 结果： 李四
+
+// 深层嵌套解构赋值案例二:
+let classify = {
+    title: '菜品',
+    children: {
+        title: '肉类',
+        children: {
+            title: '羊肉串'
+        }
+    }
+}
+let {children:{children:{title}}} = classify;
+console.log(title);     // 结果：羊肉串
+
+// 解构赋值配合扩展运算符使用
+let person7 = {
+    name: '张三',
+    age: 20,
+    children: {
+        name: '李四',
+        age: 21
+    }
+}
+let {...person_obj} = person7;
+console.log(person_obj);     //结果：{name: '张三', age: 20, children: {name: '李四', age: 21}}
+
+
+// 2、数组解构
+
+// 普通方式
+let attr = [10 ,20, 30];
+let a = attr[0], b = attr[1], c = attr[2];
+console.log(a, b ,c);   // 结果：10 20 30
+
+// 解构赋值
+let attr1 = [10 ,20, 30];
+let [a1, b1, c1] = attr1;
+console.log(a1, b1, c1);    // 结果：10 20 30
+
+// 提取部分值
+let attr2 = [10 ,20, 30];
+let [, , c2] = attr2;
+console.log(c2);    // 结果：30
+
+// 已声明的变量解构，不需要加圆括号，与对象不一样
+let attr3 = [10 ,20, 30];
+let a3, b3, c3;
+[a3, b3, c3] = attr3;
+console.log(a3, b3, c3);    // 结果：10 20 30
+
+
+// 给数组解构表达式添加默认值
+let attr4 = [10 ,20, 30];
+let [a4, b4, c4, d = 40, e] = attr4;
+console.log(a4, b4, c4, d, e);   // 结果：10 20 30 40 undefined
+
+// 数组解构嵌套案例
+let books = ['PHP', 'Java', ['JavaScript', 'CSS', 'HTML']];
+let [a5, , [, , e5]] = books;
+console.log(a5, e5);    // 结果：PHP HTML
+
+// 数组解构与扩展运算符一起使用
+let books1 = ['PHP', 'Java', ['JavaScript', 'CSS', 'HTML']];
+let [a6, , [...html]] = books1;
+let [...newBooks] = books1;
+console.log(a);     // 结果： PHP
+console.log(html);      // 结果：['JavaScript', 'CSS', 'HTML']
+console.log(newBooks);      // 结果：['PHP', 'Java', ['JavaScript', 'CSS', 'HTML']]
