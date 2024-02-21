@@ -1,0 +1,2 @@
+JavaScript语言的传统方法是通过构造函数定义并生成新对象。function即是对象，对象即是function。没有class的概念。ES6提供了更接近传统语言的写法。如Java、PHP等后端语言，引入了class这个概念，作为对象的模板
+
