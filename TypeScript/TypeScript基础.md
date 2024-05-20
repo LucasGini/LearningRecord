@@ -127,7 +127,7 @@ let a: MyUserName
 
 
 
-## 泛型 -- '<T>'
+## 泛型
 
 ``` typescript
 // 定义一个泛型函数
