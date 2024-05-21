@@ -50,7 +50,7 @@ class Article {
   content: string,  // 公开的属性，可以在类外部访问，不写其他修饰符，默认为public
   aaa?: string // 可选属性，不需要进行初始化
   bbb: number = 10 // 设置默认值
-	private tempData?: string  // 私有属性，不可以在类外部访问，只能在类内部访问
+  private tempData?: string  // 私有属性，不可以在类外部访问，只能在类内部访问
   protected innerData?: string // 保护属性，只能在类内部或者子类进行访问
 
 	static author: string  // 静态属性，作为类的本身，不需要实例化即可使用  如Article.author
