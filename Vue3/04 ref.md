@@ -19,16 +19,16 @@
 
 ```vue
 <template>
-	<div>
+<div>
   <span>{{refStr}}</span>
   <span>{{refNum}}</span>
   <span v-show="refBool">{{refBool}}</span>
   <button @click=changeRef>变更响应式变量</button>
-   <span>{{str}}</span>
+  <span>{{str}}</span>
   <span>{{num}}</span>
   <span v-show="bool">{{bool}}</span>
   <button @click=changeCommon>变更普通变量</button>
-  </div>
+</div>
 </template>
 <script setup>
 import {ref} from 'vue'
