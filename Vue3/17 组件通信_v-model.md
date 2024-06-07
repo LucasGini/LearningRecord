@@ -1,144 +1,116 @@
-# 组件通信——mitt
-
-**概述**：用于任意层级组件通信
-
-**注意**：卸载组件时，要解绑事件
+# 组件通信——v-model
 
 
 
-## 安装mitt
-
-```
-// npm安装
-npm i mitt
-
-// yarn安装
-yarn add mitt
-```
+**概述**：实现父←→子之间互相通信，常用于组件封装（重要）
 
 
 
-## 引入mitt
-
-@/utils/emitter.js
-
-```javascript
-// 引入mitt
-import mitt from 'mitt'
-
-// 调用mitt得到emitter，emitter能绑定事件、触发事件
-const emitter = mitt()
-
-// 暴露emitter
-export default emitter
-```
-
-@/main.js
-
-```javascript
-import { createApp } from 'vue'
-import App from './App.vue'
-import emitter from '@/utils/emitter'
-
-const app = createApp(App)
-
-app.mount('#app')
-```
-
-
-
-## 父组件
-
-@/custom_event/Father.vue
+## v-model的本质
 
 ```vue
 <template>
-  <div class="father">
-    <h3>父组件</h3>
-    <h4 v-if='toy'>孩子给的玩具： {{toy}}</h4>
-    <!-- 给子组件绑定事件 -->
-    <Child1/>
-    <Child2/>
-  </div>
+  <!-- 使用v-model指令 -->
+  <input type='text' v-model='username'>
+  
+  <!-- 上面代码使用v-model的本质 -->
+  <input type='text' :value="username" @input="username = $event.target.value">
 </template>
-<script setup name="Father">
-  import {Child1} from './Child1.vue'
-  import {Child2} from './Child2.vue'
-  import {ref} from 'vue'
+```
+
+
+
+## 组件标签上v-model的本质：:modelValue + update:modelValue事件
+
+## 
+
+```vue
+<template>
+  <!-- 组件标签上使用v-model指令 -->
+  <CustomInput v-model='username'/>
   
-  // 数据
-  let toy = ref('')
-  
-  // 方法
-  function getToy(value) {
-    toy.value = value
-  }
+  <!-- 组件标签上v-model的本质 -->
+  <CustomInput :modelValue="username" @update:modelValue="username = $event">
+</template>
+```
+
+CustomInput组件中
+
+```vue
+<template>
+  <div class="box">
+    <!-- 将接收的modelValue值赋给input元素的value属性，目的是为了呈现数据 -->
+    <!-- 给input元素绑定input事件，除非input事件时，进而触发update:modelValue事件 -->
+    <input
+       type="text"
+       :value="modelValue"
+       @input="emit('update:modelValue', $event.target.value)"
+    >
+</template>
+
+<script setup name="CustomInput">
+  // 获取props
+  defineProps('modelValue')
+  // 声明事件
+  const emit = defineEmits(['update:modelValue'])
 </script>
 ```
 
 
 
-## 子组件1
+## 更换value名称
 
-@/custom_event/Child1.vue
+## 
 
 ```vue
 <template>
-  <div class="child">
-    <h3>子组件</h3>
-    <h4>玩具：{{toy}}</h4>
-    <button @click="sendToy">把玩具给哥哥</button>
-  </div>
+  <!-- 更换value，改成name -->
+  <CustomInput v-model:name='username'/>
+  
+  <!-- 上面代码的本质 -->
+  <CustomInput :name="username" @update:name="username = $event">
 </template>
-<script setup name="Child1">
-  import {ref} from 'vue'
-  import emitter from '@/utils/emitter'
-  
-  // 数据
-  let toy = ref('奥特曼')
-  
-  // 触发事件
-  function sendToy() {
-    // 触发事件
-    emitter.emit('get-toy', toy.value)
-  }
+```
+
+CustomInput组件中
+
+```vue
+<template>
+  <div class="box">
+    <!-- 将接收的modelValue值赋给input元素的value属性，目的是为了呈现数据 -->
+    <!-- 给input元素绑定input事件，除非input事件时，进而触发update:modelValue事件 -->
+    <input
+       type="text"
+       :value="name"
+       @input="emit('update:name', $event.target.value)"
+    >
+</template>
+
+<script setup name="CustomInput">
+  // 获取props
+  defineProps('name')
+  // 声明事件
+  const emit = defineEmits(['update:name'])
 </script>
 ```
 
 
 
-## 子组件2
-
-@/custom_event/Child2.vue
+## 多次使用v-model
 
 ```vue
 <template>
-  <div class="child">
-    <h3>子组件</h3>
-    <h4>电脑：{{computer}}</h4>
-    <h4>弟弟给的玩具：{{ toy }}</h4>
-    <button @click="sendToy">把玩具给父亲</button>
-  </div>
+  <!-- 更换value，改成name -->
+  <CustomInput v-model:name='username' v-model:pass="password"/>
+  
+  <!-- 上面代码的本质 -->
+  <CustomInput :name="username" :pass="password" @update:name="username = $event" @update:pass="password = $event">
 </template>
-<script setup name="Child2">
-  import {ref, onUnmounted} from 'vue'
-  import emitter from '@/utils/emitter'
-
-  
-  // 数据
-  let computer = ref('mac')
-  let toy = ref('')
-  
-  // 绑定事件
-  emitter.on('get-toy', (value) => {
-    toy.value = value
-  })
-  
-  // 卸载组件时解绑get-toy事件,减少内存消耗
-  onUnmounted(() => {
-    emitter.off('get-toy')
-  })
-  
-</script>
 ```
+
+
+
+
+
+
 
