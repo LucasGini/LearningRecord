@@ -10,7 +10,7 @@
 
 设置列表页list_display展示所有字段
 
-```Python
+```python
 from django.contrib import admin
 from .models import Country, Province, Area, City
 
