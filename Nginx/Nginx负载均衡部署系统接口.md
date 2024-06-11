@@ -10,19 +10,21 @@
 1. 轮询：默认方式。每个请求按照时间顺序被逐一分配到不同的后端服务器，如果后端服务器宕机，则将其自动剔除
 2. 权重（weight）：默认为1.服务器权重越高，则被分配的客户端越多，处理的请求就越多，权重越大，责任越大 
 配置如下：
-```markdown
-upstream myserver {
-  server 192.168.77.101.8001 weight =1;
-  server 192.168.77.102.8001 weight =5;
-}
-（3）ip_hash算法：每个人请求按照访问IP地址的hash结果进行分配，每个人请求固定访问一个应用服务器，可以解决session共享问题。
-upstream myserver {
-  ip_hash;
-  server 192.168.77.101.8001;
-  server 192.168.77.102.8001;
-  server 192.168.77.104.8001;
-}
-```
+   ```markdown
+   upstream myserver {
+     server 192.168.77.101.8001 weight =1;
+     server 192.168.77.102.8001 weight =5;
+   }
+   ```
+3. ip_hash算法：每个人请求按照访问IP地址的hash结果进行分配，每个人请求固定访问一个应用服务器，可以解决session共享问题。
+   ```markdown
+   upstream myserver {
+   ip_hash;
+   server 192.168.77.101.8001;
+   server 192.168.77.102.8001;
+   server 192.168.77.104.8001;
+   }
+   ```
 
 ## 具体配置
 nginx.conf 增加如下内容
