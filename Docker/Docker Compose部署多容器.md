@@ -97,7 +97,7 @@ services:
 `restart`：在出现错误后会自动重启
 
 2、 构建和启动
-```markdown
+```shell
 docker-compose build
 docker-compose up -d
 # 关闭

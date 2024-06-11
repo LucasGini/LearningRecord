@@ -23,7 +23,7 @@ pip install django-cors-headers
 
 settings.py文件编辑如下
 
-```Python
+```python
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # 需要添加在中间件的首位
     'django.middleware.security.SecurityMiddleware',

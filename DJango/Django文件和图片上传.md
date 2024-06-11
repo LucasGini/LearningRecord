@@ -7,7 +7,7 @@
 
 settings里面添加/media路径,urls.py中添加图片路径映射
 
-```Python
+```python
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 ```
@@ -17,14 +17,14 @@ MEDIA_URL = '/media/'
 
 model里面添加图片/文件字段（如个人照片，个人简历字段到resume）
 
-```Python
+```python
 picture = models.ImageField(upload_to='images/', blank=True, verbose_name='个人照片')
 attachment = models.FileField(upload_to='file/', blank=True, verbose_name='简历附件')
 ```
 
 form.py中增加图片，附件字段
 
-```Python
+```python
 class ResumeForm(ModelForm):
 
 class Meta:
@@ -39,7 +39,7 @@ class Meta:
 
 创建简历的视图中展示picture，attachment字段
 
-```Python
+```python
 class ResumeCreateView(LoginRequiredMixin, CreateView):
 """
 简历职位页面
@@ -85,7 +85,7 @@ HTMlL表单模板中增加enctype属性（resume_form.html）
 
 admin文件中：
 
-```Python
+```python
 class ResumeAdmin(admin.ModelAdmin):
 
 actions = (enter_interview_process,)
@@ -114,7 +114,7 @@ pip install django-oss-storage
 ```
 2.OSS的依赖添加django_oss_storage到APPS
 
-```Python
+```python
 INSTALLED_APPS = [
     ...
     'django_oss_storage',
@@ -123,7 +123,7 @@ INSTALLED_APPS = [
 
 3.settings里面添加OSS设置
 
-```Python
+```python
 # 阿里云OSS配置
 DEFAULT_FILE_STORAGE = 'django_oss_storage.backends.OssMediaStorage'
 OSS_ACCESS_KEY_ID = ''

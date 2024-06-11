@@ -1,7 +1,7 @@
 # Django Rest Framework 自定义异常类
 
 （1）新建文件customexception.py，创建视图函数custom_exception_handler()
-```Python
+```python
 from rest_framework.views import exception_handler
 def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
@@ -27,7 +27,7 @@ def custom_exception_handler(exc, context):
 
 （2）全局配置
 
-```Python
+```python
 REST_FRAMEWORK = {
     ...
     'EXCEPTION_HANDLER': 'apps.goods.customexception.custom_exception_handler'

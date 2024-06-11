@@ -28,7 +28,7 @@ pip install django-redis
 
 3.django.settings配置
 
-```Python
+```python
 # Redis配置
 CACHES = {
     "default": {
@@ -47,7 +47,7 @@ CACHES = {
 
 4.django.settings配置整站缓存
 
-```Python
+```python
 MIDDLEWARE = [
     ...
     'django.middleware.cache.UpdateCacheMiddleware',    # 整站缓存

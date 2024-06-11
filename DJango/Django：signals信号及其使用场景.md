@@ -47,7 +47,7 @@ Signal.connect(receiver, sender=None, weak=True, dispatch_uid=None)
 
 在apps的reday()函数中加载数据处理器
 
-```Python
+```python
 class JobsConfig(AppConfig):
     name = 'jobs'
 
@@ -58,7 +58,7 @@ class JobsConfig(AppConfig):
 
 settings中使用完成的名称注册AppConfig，去掉原先注册的jobs应用
 
-```Python
+```python
 INSTALLED_APPS = [
     'bootstrap4',
     ...
@@ -70,7 +70,7 @@ INSTALLED_APPS = [
 
 新建 signal_processor.py文件
 
-```Python
+```python
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
@@ -95,7 +95,7 @@ def post_save_callback(sender, instance=None, created=False, **kwargs):
  
 示例：  手工注册信号处理器
 
-```Python
+```python
 from django.forms.models import model_to_dict
 
 def post_delete_callback(sender, instance=None, using=None, **kwarg):
@@ -113,7 +113,7 @@ post_delete.connect(post_delete_callback, sender=Resume, dispatch_uid="resume_po
 
 1)定义信号：在项目根目录新增文件self_signal.py
 
-```Python
+```python
 import django.dispatch
 my_signal = django.dispatch.Signals(providing_args=["argument1", "argument2"])
 ```
@@ -121,7 +121,7 @@ my_signal = django.dispatch.Signals(providing_args=["argument1", "argument2"])
     
 2)触发信号：业务逻辑中触发信息
 
-```Python
+```python
 from self_signal import my_signal
 my_signal.send(sender="Recruitment", argument1=111, argument2=2)
 ```
@@ -129,7 +129,7 @@ my_signal.send(sender="Recruitment", argument1=111, argument2=2)
     
 3)注册信号处理器/接收器
 
-```Python
+```python
 from self_signal import my_signal
 my_signal.connect(callback_of_my_signal)
 ```

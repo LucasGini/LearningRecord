@@ -4,7 +4,7 @@
 
 （1）配置settings.py文件
 
-```Python
+```python
 # 配置基于数据库方式实现缓存
 CACHES = {
     'default': {
@@ -21,7 +21,7 @@ python3 manage.py createcachetable
 ```
 ## 缓存视图函数和视图类
 
-```Python
+```python
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from rest_framework.decorators import api_view

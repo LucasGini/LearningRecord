@@ -12,7 +12,7 @@
         
 示例：
 
-```Python
+```python
 from celery import Celery
 
 app Celery('hello', broker='amqp://guest@localhost//')
@@ -50,7 +50,7 @@ Redis-server.exe redis.windows.conf
 
 6.添加一个tasks.py文件
 
-```Python
+```python
 from celery import Celery
 # 第一个参数 是当前脚本的名称， 第二个参数是broker服务地址
 app = Celery('tasks', backend='redis://127.0.0.1', broker='redis://127.0.0.1')
@@ -67,7 +67,7 @@ celery -A tasks worker --loglevel=info
 ```    
 8.celery文件下添加一个run_task.py
 
-```Python
+```python
 from tasks import add
 
 result = add.delay(4, 4)
@@ -97,7 +97,7 @@ celery -A tasks flower --broker=redis://@localhost:6379/0
 
 1.在项目的主应用下创建celery.py
 
-```Python
+```python
 from __future__ import absolute_import, unicode_literals
 import os
 
@@ -122,7 +122,7 @@ def debug_task(self):
         
 2.在项目主应用的_init__.py文件输入：# 作用：应用启动的时候能够加载Celery的环境
 
-```Python
+```python
 from __future__ import absolute_import, unicode_literals  # 防止包有命名冲突
 
 from .celery import app as celery_app # 导入APP
@@ -134,7 +134,7 @@ __all__ = ('celery_app',) #把app暴露出去
 
 3.在django.setting文件进行配置
 
-```Python
+```python
 # Celery application definition
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
@@ -179,7 +179,7 @@ celery --app recruitment flower --broker=redis://localhost:6379/0
 
 1.在应用目录下创建一个tasks.py
 
-```Python
+```python
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
 from .dingtalk import send
@@ -194,7 +194,7 @@ def sen_dingtalk_message(message):
         
 2.在代码中调用任务
 
-```Python
+```python
 from .tasks import sen_dingtalk_message
 def notify_interviewer(modelamin, request, queryset):
 candidates = ""
@@ -249,7 +249,7 @@ celery --app recruitment beat --scheduler django_celery_beat.schedulers:Database
 系统启动时自动注册定时任务
 
 在主应用下的celery.py文件添加代码
-```Python
+```python
 from celery.schedules import crontab
         @app.on_after_configure.connect # 系统启动完成后再去执行这个方法
         def setup_periodic_tasks(sender, **kwargs):
@@ -271,7 +271,7 @@ from celery.schedules import crontab
 
 在主应用下的celery.py文件添加代码
 
-```Python
+```python
 # 注意下面引用的tasks.add的方法，必须显示import，才能正确注册
 from recruitment.tasks import add
 app.conf.beat_schedule = {
@@ -284,7 +284,7 @@ app.conf.beat_schedule = {
 ```
 运行时添加定时任务
 
-```Python
+```python
 import json
 from django_celery_beat.models import PeriodicTask, IntervalSchedule
 # 创建定时策略

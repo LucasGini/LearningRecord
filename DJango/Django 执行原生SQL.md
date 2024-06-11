@@ -6,7 +6,7 @@
 
 （1）基本使用
 
-```Python
+```python
 users = UserExtraInfo.objects.raw('select * from userbaseinfo4')
 for user in users:
     print(type(user), user)
@@ -14,7 +14,7 @@ for user in users:
 
 （2）条件查询
 
-```Python
+```python
 username='lisi'
 sql = 'select * from UserExtraInfo4 where username=%s'
 users = UserExtraInfo.objects.raw(sql, [username])
@@ -24,7 +24,7 @@ for user in users:
 
 （3）多表查询
 
-```Python
+```python
 sql = 'select a.*, b.* from UserBaseInfo4 a , UserExtraInfo4 b where a.id=b.user_id'
 users = UserBaseInfo.objects.raw(sql)
 for user in users:
@@ -37,7 +37,7 @@ Django使用主键来标识模型实例，因此主键必须始终包含在原�
 Django用django.db.connection封装了数据库的连接对象，通过连接对象来获取游标（cursor）。
 
 （1）插入数据
-```Python
+```python
 from django.db import connection
 from django.utils import timezone
 
@@ -55,7 +55,7 @@ cursor.close()
 
 游标对象提供了fetchall()方法获取所有数据和fetchone()方法获取其中一个结果，返回一个元组
 
-```Python
+```python
 from django.db import connection
 cursor = connection.cursor()
 cursor.execute('select * from userextrainfo4')
@@ -70,7 +70,7 @@ cursor.close()
 
 （3）更新数据
 
-```Python
+```python
 cursor = connection.cursor()
 try:
     updatesql = 'update departinfo4 set department=%s where id=%s'
@@ -89,7 +89,7 @@ except:
 
 （4）删除数据
 
-```Python
+```python
 cursor = connection.cursor()
 sql = 'delete from departinfo4 where department=%s'
 data = ['销售部']

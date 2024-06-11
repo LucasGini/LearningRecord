@@ -2,7 +2,7 @@
 
 ## 创建序列化器
 
-```Python
+```python
 from rest_framework import serializers
 from apps.goods.models import Goods
 
@@ -33,7 +33,7 @@ class GoodsSerializer(serializers.Serializer):
 
 ## 创建视图
 
-```Python
+```python
 from rest_framework import mixins, generics
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -73,7 +73,7 @@ class GoodsDetailView(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins
 
 
 ## 配置路由
-```Python
+```python
 from django.urls import path
 from apps.goods import views_mixins
 

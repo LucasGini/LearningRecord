@@ -23,7 +23,7 @@ pip install djangorestframework-jwt
 
 settings.py文件编辑如下：
 
-```Python
+```python
 INSTALLED_APPS = [
     ...
     'rest_framework_jwt',
@@ -44,7 +44,7 @@ JWT_AUTH = {
 
 （3）配置路由
 
-```Python
+```python
 from django.urls import path, re_path, include
 from rest_framework_jwt.views import obtain_jwt_token
 
@@ -58,7 +58,7 @@ urlpatterns = [
 
 （1）新建文件'common/jwt_utils.py'添加如下代码
 
-```Python
+```python
 def jwt_response_payload_handler(token, user=None, request=None):
     return {
         'token': token,
@@ -71,7 +71,7 @@ def jwt_response_payload_handler(token, user=None, request=None):
 
 （2）settings.py文件编辑如下：
 
-```Python
+```python
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=3),  # 过期时间为3天
     'JWT_AUTH_HEADER_PREFIX': 'JWT',  # Token 的头为 JWT xxxxxxxxxxxx
@@ -96,7 +96,7 @@ DRF框架内置的权限组件配置信息有以下四种
 （1）全局配置
 
 settings.py文件编辑如下：
-```Python
+```python
 REST_FRAMEWORK = {
     ...
     'EXCEPTION_HANDLER': 'apps.goods.customexception.custom_exception_handler',
@@ -113,7 +113,7 @@ REST_FRAMEWORK = {
 （2）局部配置
 
 视图类中进行配置
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -137,7 +137,7 @@ DRF框架支持自定义权限，只需要继承rest_framework.permissions.BaseP
 `has_object_permission(self, request, view, obj)`方法：是否可以访问数据对象。view表示当前视图对象，obj为数据对象。该方法在发起PUT请求进行修改数据时触发
 
 （1）新建文件‘common/permission.py’，添加如下代码
-```Python
+```python
 from rest_framework.permissions import BasePermission
 from rest_framework_jwt.authentication import jwt_decode_handler
 
@@ -157,7 +157,7 @@ class IsOwnerOrReadOnly(BasePermission):
 
 （2）视图类中进行配置
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer

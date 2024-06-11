@@ -2,7 +2,7 @@
 
 ## 新增models
 django.models.py
-```Python
+```python
 class UserBaseInfo(models.Model):
     id = models.AutoField(verbose_name='编号', primary_key=True)
     username = models.CharField(verbose_name='用户名称', max_length=30)
@@ -23,7 +23,7 @@ class UserBaseInfo(models.Model):
 
 ## 新增视图函数
 django.views.py
-```Python
+```python
 def user_base_info_model_form(request):
     if request.method == 'GET':
         f = UserBaseInfoModelForm()
@@ -55,7 +55,7 @@ def user_base_info_model_form(request):
 ```
 
 ## 新增表单
-```Python
+```python
 class UserBaseInfoModelForm(forms.ModelForm):
     class Meta:
         # 定义关联模型
@@ -109,7 +109,7 @@ django.template
 
 ## 配置路由
 django.usrls.py
-```Python
+```python
 from django.urls import path, re_path
 from django.views.static import serve
 urlpatterns = [

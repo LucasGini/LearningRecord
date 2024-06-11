@@ -3,7 +3,7 @@
 ## 编写测试用例
 
 每个app都有一个tests.py文件，编辑如下代码
-```Python
+```python
 from django.test import TestCase
 from apps.goods.models import Goods
 

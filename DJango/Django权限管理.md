@@ -39,7 +39,7 @@ Required_POST 请求访问限制装饰器，只允许使用POST方式访问函�
 
 下面的例子在Meta类中新增了permissions属性，以列表或者元组的方式表示，每个权限中包含两个项。分别对应数据库表auth_permission中的codename字段和name字段
 
-```Python
+```python
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -63,7 +63,7 @@ class MyUser(AbstractUser):
 
 （1）视图函数
 
-```Python
+```python
 from django.contrib.auth.decorators import login_required, permission_required
           
 @permission_required('app6.change_myuser')

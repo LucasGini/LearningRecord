@@ -56,7 +56,7 @@ data: {
 
 在视图中解决,视图函数增加@csrf_exempt装饰器
 
-```Python
+```python
 @csrf_exempt
 def imgfileform(request):
     if request.method == 'GET':

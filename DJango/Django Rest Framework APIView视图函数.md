@@ -1,7 +1,7 @@
 # Django Rest Framework APIView视图函数
 
 ## 创建Serialiser
-```Python
+```python
 from rest_framework import serializers
 from apps.goods.models import Goods
 
@@ -27,7 +27,7 @@ class GoodsSerializer(serializers.Serializer):
 
 ## 创建视图
 
-```Python
+```python
 from django.http import Http404
 from rest_framework import views
 from apps.goods.models import Goods
@@ -80,7 +80,7 @@ class GoodsView(views.APIView):
 
 ## 路由
 
-```Python
+```python
 from django.urls import path
 from apps.goods import views_apiview
 

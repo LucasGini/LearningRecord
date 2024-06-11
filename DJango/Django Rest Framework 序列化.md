@@ -3,7 +3,7 @@
 ## 使用Serializer类进行序列化
 
 （1）创建序列化文件
-```Python
+```python
 from rest_framework import serializers
 class GoodsSerializer(serializers.Serializer):
     name = serializers.CharField(required=True, max_length=100)
@@ -12,7 +12,7 @@ class GoodsSerializer(serializers.Serializer):
 ```
 
 （2）创建视图类
-```Python
+```python
 class GoodsApiView(APIView):
 
     def get(self, request, *args, **kwargs):
@@ -31,7 +31,7 @@ class GoodsApiView(APIView):
 ## 使用ModelSerializer类进行序列化
 
 （1）创建序列化文件
-```Python
+```python
 from rest_framework import serializers
 class GoodsModelSerializer(serializers.ModelSerializer):
 
@@ -42,7 +42,7 @@ class GoodsModelSerializer(serializers.ModelSerializer):
 
 （2）创建视图类
 
-```Python
+```python
 class GoodsApiView(APIView):
 
     def get(self, request, *args, **kwargs):
@@ -61,7 +61,7 @@ class GoodsApiView(APIView):
 
 ## 序列化嵌套
 
-```Python
+```python
 class GoodsModelSerializer(serializers.ModelSerializer):
 
     category = GoodsCategorySerializer(required=False, read_only=True)  # 序列化嵌套

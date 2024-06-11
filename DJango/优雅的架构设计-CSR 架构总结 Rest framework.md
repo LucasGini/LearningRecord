@@ -11,7 +11,7 @@
     
 4 行代码定义一个 model 的API
 
-```Python
+```python
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User

@@ -12,7 +12,7 @@ DRF框架提供一下几种认证方案
 （1）配置应用
 
 编辑settings.py文件
-```Python
+```python
 INSTALLED_APPS = [
     ...
     'rest_framework.authtoken',
@@ -27,7 +27,7 @@ REST_FRAMEWORK = {
 
 （2）配置路由并获取Token
 
-```Python
+```python
 from django.urls import path, re_path, include
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.documentation import include_docs_urls
@@ -41,7 +41,7 @@ urlpatterns = [
 （3）使用Token
 
 新建permissions.py文件，编辑代码如下
-```Python
+```python
 from rest_framework.permissions import BasePermission
 from rest_framework.authtoken.models import Token
 
@@ -59,7 +59,7 @@ class IsOwnerOrReadOnly(BasePermission):
 ```
 
 修改视图类
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer

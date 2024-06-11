@@ -9,12 +9,12 @@
 清晰得定义了几个基础概念
 * API使用起来清晰、简洁
 * 关键设计可以扩展，具备高可用性
-* 定义了一套协议/API，跨平台（Python/Node/PHP客户端，Python/Go/Rust服务端）
+* 定义了一套协议/API，跨平台（python/Node/PHP客户端，python/Go/Rust服务端）
     
     
 3行代码定义一个异步任务tasks.py
 
-```Python
+```python
 from celery import Celery
 app = Celery('hello', broker='redis://localhost:6379/0')
 
@@ -25,7 +25,7 @@ def add(x, y):
 
 调用异步任务&获取执行结果run_task.py
 
-```Python
+```python
 from tasks import add
 result = add.delay(4, 4)
 run_result = result.get(timeout=1)

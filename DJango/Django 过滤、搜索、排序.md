@@ -9,7 +9,7 @@ pip install django-filter
 
 新建文件myfilter.py
 
-```Python
+```python
 from django_filters import rest_framework as filters
 from apps.goods.models import *
 
@@ -30,7 +30,7 @@ class GoodsFilter(filters.FilterSet):
 
 （3）修改视图类
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -51,7 +51,7 @@ class GoodsView(viewsets.ModelViewSet):
 
 修改视图类
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -76,7 +76,7 @@ class GoodsView(viewsets.ModelViewSet):
 
 修改视图类
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer

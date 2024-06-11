@@ -12,7 +12,7 @@ pip install django-rest-swagger
 
 （2）修改settings.py文件
 
-```Python
+```python
 INSTALLED_APPS = [
     ...
     'rest_framework_swagger',
@@ -22,7 +22,7 @@ INSTALLED_APPS = [
 
 （3）配置视图类
 
-```Python
+```python
 class GoodsView_Custom(CustomModelViewSet):
 """
 list:
@@ -42,7 +42,7 @@ delete：
 
 （4）配置路由
 
-```Python
+```python
 from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPICodec
 from rest_framework.schemas import get_schema_view
 
@@ -61,7 +61,7 @@ urlpatterns = [
 
 解决：REST_FRAMEWORK中添加'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',  # rest_framework_swagger的配置
 
-```Python
+```python
 REST_FRAMEWORK = {
 　　'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema', # rest_framework_swagger的配置}
 

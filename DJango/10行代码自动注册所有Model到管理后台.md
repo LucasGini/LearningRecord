@@ -5,11 +5,12 @@
 实际的业务场景中，往往Model多达几十个
 
 一个个写Admin，再写Register，效率低
-    
+
 ## 实现方法一
+
 主应用中新增apps.py
 
-```Python
+```python
 from django.contrib import admin
 from django.apps import apps, AppConfig
 
@@ -36,24 +37,26 @@ class UniversalManagerApp(AppConfig):
             except admin.sites.AlreadyRegistered:
                 pass
 ```
-                    
+
 ## 实现方法二
-   * Python的动态model
-   * python中类也是对象
-   * 使用Python的动态特性
-   * 使用type()函数类动态定义一个类
-   * model = type(name, (models.Moesl,), attrs)
-        
+
+* Python的动态model
+* python中类也是对象
+* 使用Python的动态特性
+* 使用type()函数类动态定义一个类
+* model = type(name, (models.Moesl,), attrs)
 
 普通的类定义：
-```Python
+
+```python
 class Person(model.Model):
     first_name = models.CharField(max_length=255)
     lasr_name = models.CharField(max_length=255)
 ```
 
 等同于如下的动态类定义
-```Python
+
+```python
 class type('Person', (models.Moesl,), {
     "first_name": models.CharField(max_length=255),
     "lasr_name": models.CharField(max_length=255)
@@ -63,19 +66,19 @@ class type('Person', (models.Moesl,), {
 对已有数据库提供增删改查功能和Rest API
 
 安装 snadman2
-```Shell
+
+```shell
 pip install sandman2
 ```
-    
+
 以 SQLite数据库为例子，启动sandman2
-```
+
+```shell
 sandman2ctl sqlite+pysqlite:///db.sqlte3
-```        
+```
+
 访问 restapi和管理后台
 
 http://127.0.0.1:5000/
 
 http://127.0.0.1:5000/admin/
-
-
-            

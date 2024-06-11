@@ -8,7 +8,7 @@
 * `LiveServerTestCase`: 在后台自动启动一个 Server，以便使用外部工具如 Selenium 做测试
     
 ## 一个简单的测试用例
-```Python
+```python
 from django.test import TestCase
 from django.test import Client
 

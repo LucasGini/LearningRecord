@@ -11,7 +11,7 @@ GenericsAPIView类的子类有：
 
 ## 定义序列化器
 
-```Python
+```python
 from rest_framework import serializers
 from apps.goods.models import Goods
 
@@ -42,7 +42,7 @@ class GoodsSerializer(serializers.Serializer):
 
 ## 定义视图
 
-```Python
+```python
 from rest_framework import generics
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -62,7 +62,7 @@ class GoodsDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 ## 定义路由
-```Python
+```python
 from django.urls import path, include
 from apps.goods import views_generics
 

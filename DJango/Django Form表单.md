@@ -10,7 +10,7 @@
 * `From.errors`属性, 表单的验证错误信息
 
 ## 表单数据校验
-```Python
+```python
 class UserInfoMsgForm(forms.Form):
     username = forms.CharField(label='用户名称', min_length=6, widget=forms.widgets.TextInput(
     attrs={'class': 'form-control', 'placeholder': '请输入用户名称'}),
@@ -23,7 +23,7 @@ error_messages={'required': '用户姓名不能为空', 'min_length': '长度最
 required参数对应的是提交内容为空时所提示的信息，invalid对应的是当提交的数据出现格式错误时所提示的信息
 
 ## 自定义验证规则
-```Python
+```python
 from django.core.exceptions import ValidationError   # 导入错误
 def mobile_validate(value):
     """校验手机号格式"""
@@ -46,7 +46,7 @@ class UserInfoMsgForm(forms.Form):
 ```
 
 ## 表单数据获取
-```Python
+```python
 def userinfo_msg_form(request):
     if request.method == 'GET':
         myform = UserInfoMsgForm

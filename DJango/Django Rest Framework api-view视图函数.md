@@ -1,7 +1,7 @@
 # Django Rest Framework api-view视图函数
 
 ## 创建Serialiser文件
-```Python
+```python
 class GoodsSerializer(serializers.Serializer):
     name = serializers.CharField(required=True, max_length=100)
     category = GoodsCategorySerializer(required=False, read_only=True)  # 序列化嵌套
@@ -23,7 +23,7 @@ class GoodsSerializer(serializers.Serializer):
 
 ## 创建视图函数
 
-```Python
+```python
 from django.http import Http404
 from rest_framework.decorators import api_view
 from rest_framework.status import *
@@ -76,7 +76,7 @@ def goods_list(request, *args, **kwargs):
 
 ## 配置路由
 
-```Python
+```python
 urlpatterns = [
     path('good_api_view/', views_api_view.goods_list, name='goods_list'),
     path('good_api_view/<int:id>/', views_api_view.goods_list, name='goods_delete')

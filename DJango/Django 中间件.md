@@ -12,7 +12,7 @@
 
 setting.py文件中
 
-```Python
+```python
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',  # 内置的安全中间件
     'django.contrib.sessions.middleware.SessionMiddleware',  # 会话中间件
@@ -38,7 +38,7 @@ Django会在MIDDLEWARE列表中按照从上到下的顺序执行中间件的proc
 
 （1）在APP目录下新建一个middle目录，在middle目录下创建一个mymiddle.py文件
 
-```Python
+```python
 # 中间件必须继承MiddlewareMixin类
 from django.utils.deprecation import MiddlewareMixin
 from django.http import HttpResponse
@@ -89,7 +89,7 @@ class AuthMiddleware2(MiddlewareMixin):
 
 打开setting.py文件，在MIDDLEWARE列表最后配置自定义的中间件
 
-```Python
+```python
 MIDDLEWARE = [
     ...
     'app6.middle.mymiddle.AuthMiddleware1',
@@ -101,7 +101,7 @@ MIDDLEWARE = [
 
 （1）在middle目录下创建一个permmiddleware.py文件  
 
-```Python
+```python
 from django.utils.deprecation import MiddlewareMixin
 from django.shortcuts import redirect, render, HttpResponse
 import re
@@ -128,7 +128,7 @@ class PermissionMiddleware(MiddlewareMixin):
 
 打开setting.py文件，在MIDDLEWARE列表最后配置自定义的中间件
 
-```Python
+```python
 MIDDLEWARE = [
     ...
     'app6.middle.mymiddle.AuthMiddleware1',

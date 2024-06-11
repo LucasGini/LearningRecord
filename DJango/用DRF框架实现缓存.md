@@ -4,7 +4,7 @@
 
 （1）配置settings.py文件
 
-```Python
+```python
 # 配置基于数据库方式实现缓存
 CACHES = {
     'default': {
@@ -28,7 +28,7 @@ python3 manage.py createcachetable
 pip install drf-extensions 
 ```
 (2)修改视图类
-```Python
+```python
 from rest_framework import views
 from apps.goods.models import Goods
 from rest_framework.response import Response
@@ -63,7 +63,7 @@ REST_FRAMEWORK_EXTENSIONS = {
 
 ## 用CacheResponseMixin类完成缓存
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer

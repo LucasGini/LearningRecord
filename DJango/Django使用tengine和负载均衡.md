@@ -13,14 +13,14 @@ https://tengine.taobao.org/
 
 安装依赖 pcre
 
-```
+```shell
 wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.gz
 
 ./configure --prefix=/usr/local/pcre && make && make install
 ```
 
 指定pcre源码目录安装tengine
-```Shell
+```shell
 wget https://tengine.taobao.org/download/tengine-2.3.2.tar.gz
 
 tar zxvf tengine-2.3.2.tar.gz && cd /data/tengine-2.3.0
@@ -53,7 +53,7 @@ server {
 * 服务器运行 Gunicorn/uWSGI
 * 单台服务器运行有两个实例
     
-```
+```shell
 vim /data/tengune/conf.d/recruitment.conf
 ```
 ```

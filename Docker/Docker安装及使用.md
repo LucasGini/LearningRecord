@@ -4,7 +4,7 @@
 
 ## 安装Docker
 （1）查看linux内核版本
-```markdown
+```shell
 uname -r
 ```
 
@@ -30,28 +30,32 @@ yum remove docker-ce
 ```
 
 ## 启动Docker命令
-```markdown
+```shell
 systemctl start docker   # 启动docker
+
 systemctl restart docker # 重启docker
+
 systemctl stop docker    # 停止docker
+
 systemctl status docker  # 查看状态
+
 systemctl enable docker  # 开机时docker自动启动
 ```
 
 ## 操作镜像
 （1）搜索镜像
-```markdown
+```shell
 docker search 镜像名称
 ```
 
 （2）获取镜像
-```
+```shell
 docker pull 镜像名称:镜像标签
 ```
 不指定标签，则默认为latest标签
 
 （3）查看镜像
-```
+```shell
 docker images
 ```
 * REPOSITORY: 镜像所在的仓库名称
@@ -62,14 +66,14 @@ docker images
 
 ## 导入导出镜像
 （1）导出镜像
-```
+```shell
 docker save imagename -o filepath
 如：docker save python:3.8 -o /root/python3.8.tar
 ```
 （2）导入镜像
 
 将导出的镜像文件复制到其他主机，执行如下命令
-```markdown
+```shell
 docker load -i /root/python3.8.tar
 或者使用
 cat root/python3.8.tar | docker import - python:3.8
@@ -85,6 +89,7 @@ https://eg49oms8.mirror.aliyuncs.com
 （3）新建配置文件：
 ```markdown
 vim /etc/docker/daemon.json
+
 输入如下内容
 {
   "registry-mirrors": ["https://eg49oms8.mirror.aliyuncs.com"]
@@ -93,7 +98,7 @@ vim /etc/docker/daemon.json
 保存
 
 （4）重启生效
-```markdown
+```shell
 systemctl daemon-reload
 systemctl restart docker
 ```
@@ -115,30 +120,31 @@ systemctl restart docker
  
 
 （2）查询容器
-```
+```shell
 docker ps -a
 ```
 
 （3）进入交互型容器
-```
+```shell
 docker run -it centos:latest /bin/bash
 ```
 
 （4）创建后台型容器
-```
+```shell
 docker run -it -d --name "centos-port" -p 80:80 centos:latest
 ```
 -p 参数指将容器的端口暴露出来，格式为“宿主机端口:容器端口”
 
 ## 进入容器
-```markdown
+```shell
 docker ps
+
 docker exec -it 容器ID /bin/bash
 ```
 
 
 ## 停止容器
-```markdown
+```shell
 docker stop -t=60 容器ID或者容器名
 ```
 参数-t指关闭容器的时间，默认值为10s
@@ -150,26 +156,27 @@ docker kill 容器ID或容器名
 两者的区别是docker stop会留出一定的时间来让容器保存状态，kill直接关闭容器
 
 ## 删除容器
-```markdown
+```shell
 docker rm 容器名称
 ```
 
 删除所有未使用的容器
-```markdown
+```shell
 docker rm $(docker ps -a -q)
 
 ```
 
 
 ## 复制容器中的文件
-```markdown
+```shell
 docker cp [OPTIONS] 容器id:src_path dest_path   # 从容器复制文件到宿主机
 docker cp [OPTIONS] dest_path 容器id:src_path  # 从宿主机复制文件到容器
 ```
 
 ## 查看容器中的日志
-```markdown
+```shell
 docker logs 容器id或容器名
+
 docker logs nginx   # 查看Nginx的logs
 ```
 

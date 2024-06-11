@@ -10,7 +10,7 @@
 * 开放的架构：可与AD域账号集成，与Google、Stackoverflow等账号集成
 * 开放的架构：有完善的插件支持：webhook、gitlab、jira、slack、PushOver、...
 * 支持不同环境（开发、测试、预发、线上）；可以配置灵活的告警
-* 跨平台，跨端的支持：Python、Java、JavaScript、Ruby、Go、Android、iOS、Web
+* 跨平台，跨端的支持：python、Java、JavaScript、Ruby、Go、Android、iOS、Web
     
     
 ## Sentry中的概念

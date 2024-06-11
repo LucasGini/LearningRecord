@@ -16,7 +16,7 @@ django自带的用户模型的字段是有限的，无法满足实际业务需�
 
 （1）修改数据模型/app6/models.py
 
-```Python
+```python
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -33,7 +33,7 @@ class MyUser(AbstractUser):
 
 （2）配置项目文件django.settings.py
 
-```Python
+```python
 AUTH_USER_MODEL='app6.MyUser'
 
 ```
@@ -50,7 +50,7 @@ python manage.py migrate
 
 （1）视图函数
 
-```Python
+```python
 from django.contrib.auth.models import User
 
 def myuser_reg(request):
@@ -80,7 +80,7 @@ def myuser_reg(request):
 
 （2）表单
 
-```Python
+```python
 class MyUserRegisterForm(forms.Form):
 
     username = forms.CharField(label='用户名', min_length=3, widget=forms.TextInput(
@@ -110,7 +110,7 @@ class MyUserRegisterForm(forms.Form):
 
 （1）视图函数
 
-```Python
+```python
 from django.contrib.auth import authenticate, login, logout
 
 def myuser_login(request):
@@ -143,7 +143,7 @@ def myuser_login(request):
 
 （2）表单
 
-```Python
+```python
 class UserLoginForm(forms.Form):
 
     username = forms.CharField(label='用户名', min_length=3, widget=forms.TextInput(
@@ -166,7 +166,7 @@ class UserLoginForm(forms.Form):
 
 （1）视图函数
 
-```Python
+```python
 def myuser_logout(request):
     logout(request)
     return redirect(reverse('myuser_login'))

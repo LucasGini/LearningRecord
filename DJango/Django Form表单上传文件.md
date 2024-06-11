@@ -2,7 +2,7 @@
 
 ## 新增models
 django.models.py
-```Python
+```python
 class ImgFile(models.Model):
     name = models.CharField(verbose_name='名称', default='', max_length=32)
     headimg = models.FileField(verbose_name='文件名', upload_to='uploads/')
@@ -19,7 +19,7 @@ class ImgFile(models.Model):
 ## 新增视图函数
 
 django.views.py
-```Python
+```python
 def imgfileform(request):
     if request.method == 'GET':
         f = ImgFileForm()
@@ -39,7 +39,7 @@ def imgfileform(request):
 
 ## 新增表单
 django.forms.py
-```Python
+```python
 class ImgFileForm(forms.Form):
     name = forms.CharField()
     headimg = forms.FileField()
@@ -59,7 +59,7 @@ django.template
 
 ## 配置路由
 django.usrls.py
-```Python
+```python
 from django.urls import path, re_path
 from django.views.static import serve
 urlpatterns = [

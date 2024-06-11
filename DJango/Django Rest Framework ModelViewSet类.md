@@ -4,7 +4,7 @@ ModelViewSet继承了mixins.CreateModelMixin,mixins.RetrieveModelMixin,mixins.Up
 
 ## 定义序列化器
 
-```Python
+```python
 from rest_framework import serializers
 from apps.goods.models import Goods
 
@@ -35,7 +35,7 @@ class GoodsSerializer(serializers.Serializer):
 
 ## 定义视图
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -49,7 +49,7 @@ class GoodsView(viewsets.ModelViewSet):
 
 ## 定义路由
 
-```Python
+```python
 from django.urls import path, include
 from apps.goods import views_viewset
 from rest_framework.routers import DefaultRouter

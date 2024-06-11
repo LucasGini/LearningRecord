@@ -8,7 +8,7 @@ pip install django-redis
 
 ## 配置settings.py文件
 
-```Python
+```python
 # 缓存配置
 CACHES = {
     "default": {
@@ -52,7 +52,7 @@ pip install django-redis-sessions
 ```
 （2）修改配置settings.py文件
 
-```Python
+```python
 SESSION_ENGINE = 'redis_sessions.session'
 SESSION_CACHE_ALIAS = 'default'
 ```

@@ -54,8 +54,8 @@ $python manage.py collectstatic --settings=settings.local
 
 同步应用
 
-* uWSGI: C 实现的 Python Web 容器；Web 服务器 Apache/Nginx 与 django-uwsgi 进程通信 来提供动态的内容;
-* gunicorn：纯 Python 实现的高性能 Python 应用容器，无外部依赖，简单容易配置； 还没有遇 到性能问题的时候，推荐使用 gunicorn.
+* uWSGI: C 实现的 python Web 容器；Web 服务器 Apache/Nginx 与 django-uwsgi 进程通信 来提供动态的内容;
+* gunicorn：纯 python 实现的高性能 python 应用容器，无外部依赖，简单容易配置； 还没有遇 到性能问题的时候，推荐使用 gunicorn.
 
 异步应用
 
@@ -71,7 +71,7 @@ $python manage.py collectstatic --settings=settings.local
 * Django 3.2/4.0 - Async ORM
 * 异步视图
 
-```Python
+```python
 async def view(request):
     await asyncio.sleep(0.5)
     retrue HttpResponse("Hello, async world!")

@@ -4,7 +4,7 @@
 （1）新建一个自定义分页类
 
 新建文件mypage.py
-```Python
+```python
 from rest_framework.pagination import PageNumberPagination
 class MyPage(PageNumberPagination):
     page_size = 1  # 每页显示的数量
@@ -15,7 +15,7 @@ class MyPage(PageNumberPagination):
 
 （2）编辑视图类
 
-```Python
+```python
 from rest_framework import viewsets
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
@@ -33,7 +33,7 @@ class GoodsView(viewsets.ModelViewSet):
 全局配置分页选项
 
 编辑settings.py文件
-```Python
+```python
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 1,

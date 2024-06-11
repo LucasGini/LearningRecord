@@ -3,7 +3,7 @@
 ## 改造rest_framework.response的Response类
 
 新建customresponse.py文件，编辑如下
-```Python
+```python
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 
@@ -36,7 +36,7 @@ class CustomResponse(Response):
 
 新建custommodelviewset.py文件，编辑如下
 
-```Python
+```python
 from rest_framework import status
 from rest_framework import viewsets
 from apps.goods.customresponse import CustomResponse
@@ -96,7 +96,7 @@ class CustomModelViewSet(viewsets.ModelViewSet):
 
 由于分页时list()方法会return self.get_paginated_response(serializer.data)，而该方法存在于rest_framework.pagination 的 PageNumberPagination中，所以需要改造分页类
 
-```Python
+```python
 from rest_framework.pagination import PageNumberPagination
 from apps.goods.customresponse import CustomResponse
 from rest_framework import status
@@ -115,7 +115,7 @@ class MyPage(PageNumberPagination):
 
 ## 编辑视图
 
-```Python
+```python
 from apps.goods.models import Goods
 from apps.goods.serializers import GoodsSerializer
 from apps.goods.custommodelviewset import CustomModelViewSet

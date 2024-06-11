@@ -12,7 +12,7 @@
 
 ## 装饰器方式
 
-```Python
+```python
 form django.db import transaction
 @transaction.atomic
 def trans(requset):
@@ -30,7 +30,7 @@ def trans(requset):
 
 ## with语句方式
 
-```Python
+```python
 form django.db import transaction
 def trans(request):
     with transaction.atomic():
@@ -47,7 +47,7 @@ def trans(request):
 ```
 
 ## 实例
-```Python
+```python
 @transaction.atomic
 def userinfo_trans(request):
     # 开启事务

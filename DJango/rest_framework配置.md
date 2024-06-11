@@ -14,7 +14,7 @@ pip install django-filter
 
 2.配置django.settings文件
 
-```Python
+```python
 INSTALLED_APPS = [
     ...
     'rest_framework',
@@ -30,7 +30,7 @@ REST_FRAMEWORK = {
 
 3.django.url配置路由
 
-```Python
+```python
 urlpatterns = [
     ...
     url(r'^api-auth/', include('rest_framework.urls'))
@@ -40,7 +40,7 @@ urlpatterns = [
 
 4.django.url配置序列序化类
 
-```Python
+```python
 from django.contrib.auth.models import User
 from jobs.models import Job
 from rest_framework import routers, serializers, viewsets
